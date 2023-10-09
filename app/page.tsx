@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard"
 
 const Home = async () => {
   const allProducts = await getAllProducts();
-  const productsArray =allProducts?.reverse().splice(0, 10);
+  const productsArray =allProducts?.reverse();
 
  
 
@@ -46,7 +46,7 @@ const Home = async () => {
         <h2 className="section-text">Trending</h2>
 
         <div className="flex flex-wrap gap-x-8 gap-y-16">
-          {allProducts?.reverse().map((product) => (
+          {productsArray?.splice(0, 6).map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
